@@ -1,0 +1,8 @@
+<?php
+/**
+ * Local development overrides (not committed to git).
+ * Copy this file to config.local.php and adjust as needed.
+ */
+return [
+    'debug' => true,
+];

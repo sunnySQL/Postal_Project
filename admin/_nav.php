@@ -1,0 +1,76 @@
+<?php
+/**
+ * Shared admin navigation bar — matches index.php style.
+ * Optional variables to set before including:
+ *   $nav_back_url  (string) — URL for an optional back link
+ *   $nav_back_text (string) — Label for the back link
+ */
+$nav_back_url  = $nav_back_url  ?? null;
+$nav_back_text = $nav_back_text ?? null;
+?>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+    .pp-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #004B87;
+        padding: 0 40px;
+        position: sticky;
+        width: 100%;
+        top: 0;
+        z-index: 200;
+        height: 60px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        font-family: 'Open Sans', sans-serif;
+    }
+    .pp-logo {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: #fff;
+        letter-spacing: -0.5px;
+        text-decoration: none;
+        transition: color 0.2s;
+        flex-shrink: 0;
+    }
+    .pp-logo:hover { color: #DA291C; }
+    .pp-nav-links {
+        display: flex;
+        list-style: none;
+        gap: 4px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+    .pp-nav-links li a {
+        color: #fff;
+        font-size: 0.92rem;
+        padding: 7px 13px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .pp-nav-links li a:hover { background: rgba(255,255,255,0.15); }
+    .pp-nav-links li a.pp-cta {
+        background: #DA291C;
+        font-weight: 600;
+    }
+    .pp-nav-links li a.pp-cta:hover { background: #b52218; }
+</style>
+<nav class="pp-nav">
+    <a href="../employee_dashboard.php" class="pp-logo">POSTAL PRO</a>
+    <ul class="pp-nav-links">
+        <li><a href="../employee_dashboard.php"><i class="fas fa-th-large"></i> Dashboard</a></li>
+        <?php if ($nav_back_url): ?>
+        <li><a href="<?= htmlspecialchars($nav_back_url) ?>"><i class="fas fa-arrow-left"></i> <?= htmlspecialchars($nav_back_text ?? 'Back') ?></a></li>
+        <?php endif; ?>
+        <li><a href="../logout.php" class="pp-cta"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+</nav>

@@ -1,0 +1,23 @@
+plans.md
+plans/
+
+# Local secrets & config (never commit)
+db_connect.php
+config.local.php
+.env
+.env.*
+
+# Full database dumps — use Schema.sql for setup; keep dumps local only
+dump.sql
+dump*.sql
+!Schema.sql
+!Reports.sql
+!migrations/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+*.log
